@@ -3,9 +3,11 @@
 # beta - given parameter vector
 # sigma - standard deviation of the noise
 # seed  - starting seed value
+
 generateY <- function(X, beta, sigma, seed = 5832652){
   #[ToDo] Set seed and generate Y following linear model
   set.seed(seed)
+  # Generate random y following linear model y = Xb+e
   Y <- X %*% beta + rnorm(length(beta), 0, sigma)
   # Return Y
   return(Y)
@@ -15,7 +17,7 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 # X - design matrix
 # Y -response
 calculateBeta <- function(X, Y){
-  # Calculate beta_LS
+  # Calculate beta_LS following formula
   beta_LS <- solve(t(X) %*% X) %*% t(X) %*% Y
   # Return beta
   return(beta_LS)
