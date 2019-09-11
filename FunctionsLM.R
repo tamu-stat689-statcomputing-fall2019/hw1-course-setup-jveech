@@ -8,7 +8,7 @@ generateY <- function(X, beta, sigma, seed = 5832652){
   #[ToDo] Set seed and generate Y following linear model
   set.seed(seed)
   # Generate random y following linear model y = Xb+e
-  Y <- X %*% beta + rnorm(length(beta), 0, sigma)
+  Y <- X %*% beta + rnorm(dim(X)[1],0, sigma)
   # Return Y
   return(Y)
 }
